@@ -18,13 +18,8 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -85,24 +80,17 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         },
         "deploy": {
-          "builder": "@angular/fire:deploy",
+          "builder": "@netlify-builder/deploy:deploy",
           "options": {
-            "prerender": false,
-            "ssr": false,
-            "browserTarget": "competitive_games_score_tracker:build:production",
-            "firebaseProject": "r0b3rtg-score-tracker",
-            "firebaseHostingSite": "r0b3rtg-score-tracker"
+            "outputPath": "dist/competitive_games_score_tracker",
+            "netlifyToken": "T35JfdzmPbgt4-6TIe-_3H8HQJJbU4ASVqw6l-gCIH0",
+            "siteId": "ca7b0b8b-3bcf-4b60-bf8f-23036db7d713"
           }
         }
       }

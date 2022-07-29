@@ -12,7 +12,6 @@ export class EditorCheckComponent {
   @Output() editorCheckPassed = new EventEmitter<boolean>();
   constructor(private httpClient: HttpClient) {}
 
-  isOwner: boolean;
   passwordWrong = false;
 
   onEnterAsEditor(password: string) {
