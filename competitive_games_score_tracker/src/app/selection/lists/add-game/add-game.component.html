@@ -1,0 +1,13 @@
+<div class="background">
+  <div class="container">
+    <h2 class="title">Add a game</h2>
+    <div class="inputs">
+      <label for="game-name">Name</label>
+      <input id="game-name" type="text" placeholder="Name" #input>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-primary" (click)="onGameAddEnd(input.value)">Add</button>
+      <button class="btn btn-default" (click)="onGameAddEnd(null)">Cancel</button>
+    </div>
+  </div>
+</div>

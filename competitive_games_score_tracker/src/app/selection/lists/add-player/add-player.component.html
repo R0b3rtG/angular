@@ -1,0 +1,18 @@
+<div class="background">
+  <div class="container">
+    <h2 class="title">Add a player</h2>
+    <div class="inputs">
+      <label for="player-name">Name</label>
+      <input maxlength="20" id="player-name" type="text" placeholder="Name" #nameInput>
+      <label for="player-description">Description</label>
+      <input maxlength="50" type="text" id="player-description" placeholder="Description" #descInput>
+      <label for="img-url">Image Url</label>
+      <input type="text" id="img-url" placeholder="Image Url" #imgUrlInput>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-primary"
+        (click)="onPlayerAddEnd({ playerName: nameInput.value, playerImageUrl: imgUrlInput.value, playerDescription: descInput.value})">Add</button>
+      <button class="btn btn-default" (click)="onPlayerAddEnd(null)">Cancel</button>
+    </div>
+  </div>
+</div>

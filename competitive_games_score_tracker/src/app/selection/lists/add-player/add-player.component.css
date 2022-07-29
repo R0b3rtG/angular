@@ -1,0 +1,50 @@
+.background {
+  display: grid;
+  place-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #33333366;
+}
+
+.container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.title {
+  text-align: center;
+}
+
+label {
+  display: block;
+}
+
+input {
+  font-size: 1rem;
+  padding: 0.1rem 0.2rem;
+  border: none;
+  outline: 1px solid #000;
+  outline-offset: 0;
+  border-radius: 0.2rem;
+  margin-bottom: 0.75rem;
+}
+
+input:focus {
+  outline-width: 2px;
+  outline-color: hsl(257, 70%, 61%);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

@@ -1,0 +1,18 @@
+<div class="container" *ngIf="infos.resultsVisible">
+  <div class="profile">
+    <img [src]="infos.playerOneImageUrl" alt="User Image">
+    <h2 class="name">{{ infos.playerOneName }}</h2>
+    <p class="description">{{ infos.playerOneDescription }}</p>
+    <h1 class="score" *ngIf="infos.playerOneScore !== null">{{ infos.playerOneScore }}</h1>
+  </div>
+  <h1>VS</h1>
+  <div class="profile">
+    <img [src]="infos.playerTwoImageUrl" alt="User Image">
+    <h2 class="name">{{ infos.playerTwoName }}</h2>
+    <p class="description">{{ infos.playerTwoDescription }}</p>
+    <h1 class="score" *ngIf="infos.playerTwoScore !== null">{{ infos.playerTwoScore }}</h1>
+  </div>
+  <p class="no-score-to-show" *ngIf="infos.playerOneScore === null">
+    No score to show. Please Choose two different people!
+  </p>
+</div>

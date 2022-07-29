@@ -1,0 +1,41 @@
+.selection-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.selection-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.add-buttons-container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.player-select,
+.game-select {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  cursor: pointer;
+  background-color: #f4f4f4;
+  border: hsl(257, 70%, 61%) 2px solid;
+  border-radius: 0.2em;
+  padding-inline: 0.3em;
+  padding-block: 0.1rem;
+  font-size: 1.1rem;
+}
+
+.player-score-change {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

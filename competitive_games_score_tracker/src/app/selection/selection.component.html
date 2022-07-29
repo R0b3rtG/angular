@@ -1,0 +1,54 @@
+<div class="selection-container">
+  <div class="selection-area">
+    <div class="player-select">
+      <label for="players1">Choose a player</label>
+      <select name="players1" id="players1" #playersRef1>
+        <option value="" disabled selected>Select a player</option>
+        <option value="{{ index }}" *ngFor="let player of players; let index = index">{{ player.playerName }}</option>
+      </select>
+    </div>
+    <div class="player-select">
+      <label for="players2">Choose a player</label>
+      <select name="players2" id="players2" #playersRef2>
+        <option value="" disabled selected>Select a player</option>
+        <option value="{{ index }}" *ngFor="let player of players; let index = index">{{ player.playerName }}</option>
+      </select>
+    </div>
+    <div class="game-select">
+      <label for="games">Choose a game</label>
+      <select name="games" id="games" #gamesRef>
+        <option value="" disabled selected>Select a game</option>
+        <option value="{{ index }}" *ngFor="let game of games; let index = index">{{ game }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="add-buttons-container">
+    <div class="player-score-change" *ngIf="scoreChangeVisible">
+      <button class="btn btn-secondary"
+        (click)="onUpdateScorePlayerOne(playersRef1.value, playersRef2.value, gamesRef.value, 1)"
+        *ngIf="isEditor">+</button>
+      <button class="btn btn-default" [disabled]="!isEditor" *ngIf="!isEditor">+</button>
+      <button class="btn btn-secondary"
+        (click)="onUpdateScorePlayerOne(playersRef1.value, playersRef2.value, gamesRef.value, -1)"
+        *ngIf="isEditor">-</button>
+      <button class="btn btn-default" [disabled]="!isEditor" *ngIf="!isEditor">-</button>
+    </div>
+    <button (click)="onShowScore(playersRef1.value, playersRef2.value, gamesRef.value)" class="btn btn-primary">
+      Show Score
+    </button>
+    <button class="btn btn-primary" (click)="onShowLists()">View Lists</button>
+    <div class="player-score-change" *ngIf="scoreChangeVisible">
+      <button class="btn btn-secondary"
+        (click)="onUpdateScorePlayerTwo(playersRef1.value, playersRef2.value, gamesRef.value, 1)"
+        *ngIf="isEditor">+</button>
+      <button class="btn btn-default" [disabled]="!isEditor" *ngIf="!isEditor">+</button>
+      <button class="btn btn-secondary"
+        (click)="onUpdateScorePlayerTwo(playersRef1.value, playersRef2.value, gamesRef.value, -1)"
+        *ngIf="isEditor">-</button>
+      <button class="btn btn-default" [disabled]="!isEditor" *ngIf="!isEditor">-</button>
+    </div>
+  </div>
+</div>
+<app-lists [listsVisible]="!info.resultsVisible" [(playersList)]="players" [(gamesList)]="games" [(scoresList)]="scores"
+  [isEditor]="isEditor">
+</app-lists>

@@ -1,0 +1,6 @@
+<div class="container">
+  <app-selection (infoSent)="onInfoRecived($event)" [isEditor]="isEditor"></app-selection>
+  <br><br>
+  <app-results [infos]="infos"></app-results>
+  <app-editor-check (editorCheckPassed)="onEditorCheckPassed($event)" *ngIf="editorCheckVisible"></app-editor-check>
+</div>

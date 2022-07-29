@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "r0b3rtg-score-tracker": {
+      "hosting": {
+        "competitive_games_score_tracker": [
+          "r0b3rtg-score-tracker"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "r0b3rtg-score-tracker"
+  }
+}

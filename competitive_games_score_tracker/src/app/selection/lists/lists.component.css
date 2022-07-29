@@ -1,0 +1,59 @@
+.container {
+  margin-top: 1.5rem;
+  background-color: #f4f4f4;
+}
+
+.content {
+  padding: 0.5rem;
+}
+
+.nav > ul {
+  display: flex;
+}
+
+.nav {
+  background-color: #d4d4d4;
+}
+
+.nav li {
+  padding: 0.4rem 0.7rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.nav li.selected {
+  background-color: #f4f4f4 !important;
+}
+
+.content > ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content > ul > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.content > ul > div > li {
+  padding: 0.3rem 0.5rem;
+  width: 100%;
+}
+
+.li-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.li-flex .btn {
+  font-size: 1.1rem;
+}
+
+.no-games,
+.no-players {
+  color: #f00;
+  padding-block: 0.3rem;
+}
