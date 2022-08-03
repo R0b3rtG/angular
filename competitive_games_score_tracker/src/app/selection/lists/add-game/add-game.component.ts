@@ -1,15 +1,12 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-game',
   templateUrl: './add-game.component.html',
   styleUrls: ['./add-game.component.css'],
 })
-export class AddGameComponent implements OnInit {
+export class AddGameComponent {
   @Output() gameAddEnded = new EventEmitter<null | string>();
-  constructor() {}
-
-  ngOnInit(): void {}
 
   onGameAddEnd(inputValue: null | string) {
     this.gameAddEnded.emit(inputValue);

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
+import { getDatabase, ref, onValue, set } from 'firebase/database';
 
 import { Info } from '../shared/info.model';
 import { Player2 } from '../shared/player2.model';
@@ -10,7 +11,8 @@ import { Player2 } from '../shared/player2.model';
   styleUrls: ['./selection.component.css'],
 })
 export class SelectionComponent implements OnInit {
-  constructor(private httpClient: HttpClient) {}
+  @Output() infoSent = new EventEmitter<Info>();
+
   ngOnInit() {
     this.firebaseGet('playersList');
     this.firebaseGet('gamesList');
@@ -38,8 +40,6 @@ export class SelectionComponent implements OnInit {
   };
 
   scores: number[][][] = [];
-
-  @Output() infoSent = new EventEmitter<Info>();
 
   onShowScore(
     playerOneIndex: string,
@@ -118,23 +118,20 @@ export class SelectionComponent implements OnInit {
   }
 
   firebaseGet(branch: string) {
-    this.httpClient
-      .get(
-        `https://r0b3rtg-scoretracker-default-rtdb.europe-west1.firebasedatabase.app/${branch}.json`
-      )
-      .subscribe((response) => {
-        let branchShort = branch.replace('List', '');
-        let info = JSON.parse(JSON.stringify(response)).info;
-        this[branchShort] = info != undefined ? info : [];
-      });
+    const database = getDatabase();
+    const gamesList = ref(database, branch);
+    onValue(gamesList, (snapshot) => {
+      let branchShort = branch.replace('List', '');
+      const data = snapshot.val();
+      this[branchShort] = data.info != undefined ? data.info : [];
+    });
   }
 
   firebasePut(branch: string) {
-    this.httpClient
-      .put(
-        `https://r0b3rtg-scoretracker-default-rtdb.europe-west1.firebasedatabase.app/${branch}.json`,
-        { info: this[branch.replace('List', '')], idk: 'idk' }
-      )
-      .subscribe();
+    const database = getDatabase();
+    set(ref(database, branch), {
+      info: this[branch.replace('List', '')],
+      idk: 'idk',
+    });
   }
 }

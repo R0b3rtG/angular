@@ -8,14 +8,33 @@
 
 .selection-area {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 1.5rem;
 }
 
-.add-buttons-container {
+.buttons-container {
   display: flex;
-  gap: 1.5rem;
+  gap: 0.3rem;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.main-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.score-change-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 65%;
 }
 
 .player-select,
@@ -25,6 +44,7 @@
 }
 
 select {
+  color: #000;
   cursor: pointer;
   background-color: #f4f4f4;
   border: hsl(257, 70%, 61%) 2px solid;
@@ -37,5 +57,5 @@ select {
 .player-score-change {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.4rem;
 }

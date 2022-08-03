@@ -1,27 +1,49 @@
 .container {
-  display: grid;
-  grid-template-columns: 1fr 0.3fr 1fr;
-  grid-template-rows: 9fr 1fr;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: min(100vw, 600px);
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  height: 300px;
+}
+
+.upper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .no-score-to-show {
   grid-column: span 3;
   text-align: center;
   font-size: 1.1rem;
+  padding-inline: 0.5rem;
   color: #f00;
 }
 
 .container > h1 {
   font-size: 2.5rem;
+  display: block;
+  text-align: center;
 }
 
 .profile {
-  padding: 15px;
-  width: 300px;
+  width: min(300px, 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.profile.left {
+  padding-right: 25px;
+}
+
+.profile.right {
+  padding-left: 25px;
 }
 
 img {
@@ -46,4 +68,15 @@ img {
 .score {
   text-align: center;
   font-size: 2.5rem;
+}
+
+@media (max-width: 500px) {
+  .profile {
+    font-size: 0.9rem;
+  }
+
+  img {
+    width: 125px;
+    height: 125px;
+  }
 }

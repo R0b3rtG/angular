@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { getDatabase, ref, set } from 'firebase/database';
 
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Player2 } from 'src/app/shared/player2.model';
@@ -10,8 +10,6 @@ import { Player2 } from 'src/app/shared/player2.model';
   styleUrls: ['./lists.component.css'],
 })
 export class ListsComponent {
-  constructor(private httpClient: HttpClient) {}
-
   trashIcon = faTrashAlt;
   addGameVisible: boolean = false;
   addPlayerVisible: boolean = false;
@@ -154,11 +152,10 @@ export class ListsComponent {
   }
 
   firebasePut(branch: string) {
-    this.httpClient
-      .put(
-        `https://r0b3rtg-scoretracker-default-rtdb.europe-west1.firebasedatabase.app/${branch}.json`,
-        { info: this[branch], idk: 'idk' }
-      )
-      .subscribe();
+    const database = getDatabase();
+    set(ref(database, branch), {
+      info: this[branch],
+      idk: 'idk',
+    });
   }
 }

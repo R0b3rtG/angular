@@ -7,7 +7,7 @@
   </div>
   <div class="content">
     <ul class="games-list" *ngIf="navIdSelected === 0">
-      <div *ngIf="gamesList.length > 0; else noGamesToShow">
+      <div *ngIf="gamesList?.length > 0; else noGamesToShow">
         <li class="li-flex" *ngFor="let game of gamesList; let index = index">
           <span>{{ game }}</span>
           <button class="btn btn-danger" (click)="onDeleteGame(index)" *ngIf="isEditor">
@@ -25,7 +25,7 @@
       <button class="btn btn-default" [disabled]="!isEditor" *ngIf="!isEditor">Add</button>
     </ul>
     <ul class="players-list" *ngIf="navIdSelected === 1">
-      <div *ngIf="playersList.length > 0; else noPlayersToShow">
+      <div *ngIf="playersList?.length > 0; else noPlayersToShow">
         <li class="li-flex" *ngFor="let player of playersList; let index = index">
           <span>{{ player.playerName }}</span>
           <button class="btn btn-danger" (click)="onDeletePlayer(index)" *ngIf="isEditor">

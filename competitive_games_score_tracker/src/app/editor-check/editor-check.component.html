@@ -2,12 +2,15 @@
   <div class="container">
     <h2 class="title">Are you an editor?</h2>
     <div class="inputs">
-      <label for="password">Enter the password</label>
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Email" #emailField>
+      <label for="password">Password</label>
       <input type="password" id="password" placeholder="Password" #passwordField>
-      <p class="wrong-password" *ngIf="passwordWrong">Wrong Password</p>
+      <p class="wrong-password" *ngIf="wrongPasswordOrEmail">Wrong Password or Email</p>
     </div>
     <div class="buttons">
-      <button class="btn btn-secondary" (click)="onEnterAsEditor(passwordField.value)">Enter as Editor</button>
+      <button class="btn btn-secondary" (click)="onEnterAsEditor(emailField.value, passwordField.value)">Enter as
+        Editor</button>
       <button class="btn btn-default" (click)="onEnterAsVisitor()">Enter as Visitor</button>
     </div>
   </div>

@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
-import * as bcrypt from 'bcryptjs';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 @Component({
   selector: 'app-editor-check',
@@ -10,30 +9,21 @@ import * as bcrypt from 'bcryptjs';
 })
 export class EditorCheckComponent {
   @Output() editorCheckPassed = new EventEmitter<boolean>();
-  constructor(private httpClient: HttpClient) {}
+  wrongPasswordOrEmail = false;
 
-  passwordWrong = false;
-
-  onEnterAsEditor(password: string) {
-    let hashedPassword: string;
-    this.httpClient
-      .get(
-        'https://r0b3rtg-scoretracker-default-rtdb.europe-west1.firebasedatabase.app/passwordHash.json'
-      )
-      .subscribe(
-        (response) => {
-          hashedPassword = response.toString();
-          if (bcrypt.compareSync(password, hashedPassword)) {
-            this.passwordWrong = false;
-            this.editorCheckPassed.emit(true);
-          } else {
-            this.passwordWrong = true;
-          }
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+  onEnterAsEditor(email: string, password: string) {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        this.wrongPasswordOrEmail = false;
+        this.editorCheckPassed.emit(true);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        this.wrongPasswordOrEmail = true;
+      });
   }
 
   onEnterAsVisitor() {

@@ -1,10 +1,6 @@
 {
   "rules": {
-    "some_path": {
-      "$uid": {
-        ".read": "auth != null && auth.uid == $uid",
-        ".write": "auth != null && auth.uid == $uid"
-      }
-    }
+    ".read": "auth.uid === 'aqII3kJkeSPzYCyi2kp6oZUdStv1'",
+    ".write": "auth.uid === 'aqII3kJkeSPzYCyi2kp6oZUdStv1'"
   }
 }
