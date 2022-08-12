@@ -1,17 +1,21 @@
 <div class="container" *ngIf="infos.resultsVisible">
   <div class="upper-container">
-    <div class="profile left">
+    <div class="images">
       <img [src]="infos.playerOneImageUrl" alt="User Image">
-      <h2 class="name">{{ infos.playerOneName }}</h2>
-      <p class="description">{{ infos.playerOneDescription }}</p>
-      <h1 class="score" *ngIf="infos.playerOneScore !== null">{{ infos.playerOneScore }}</h1>
-    </div>
-    <h1>VS</h1>
-    <div class="profile right">
       <img [src]="infos.playerTwoImageUrl" alt="User Image">
+    </div>
+    <div class="names">
+      <h2 class="name">{{ infos.playerOneName }}</h2>
+      <h1>VS</h1>
       <h2 class="name">{{ infos.playerTwoName }}</h2>
+    </div>
+    <div class="descriptions">
+      <p class="description">{{ infos.playerOneDescription }}</p>
       <p class="description">{{ infos.playerTwoDescription }}</p>
-      <h1 class="score" *ngIf="infos.playerTwoScore !== null">{{ infos.playerTwoScore }}</h1>
+    </div>
+    <div class="scores" *ngIf="infos.playerOneScore !== null">
+      <h1 class="score">{{ infos.playerOneScore }}</h1>
+      <h1 class="score">{{ infos.playerTwoScore }}</h1>
     </div>
   </div>
   <div class="lower-container">

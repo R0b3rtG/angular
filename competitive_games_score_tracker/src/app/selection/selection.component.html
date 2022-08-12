@@ -32,23 +32,23 @@
     <div class="score-change-area">
       <div class="player-score-change" *ngIf="scoreChangeVisible">
         <button class="btn btn-secondary"
-          (click)="onUpdateScorePlayerOne(playersRef1.value, playersRef2.value, gamesRef.value, 1)"
-          *ngIf="isEditor">+</button>
-        <button class="btn btn-default" [disabled]="!isEditor" *ngIf="!isEditor">+</button>
-        <button class="btn btn-secondary"
           (click)="onUpdateScorePlayerOne(playersRef1.value, playersRef2.value, gamesRef.value, -1)"
           *ngIf="isEditor">-</button>
         <button class="btn btn-default" [disabled]="!isEditor" *ngIf="!isEditor">-</button>
-      </div>
-      <div class="player-score-change" *ngIf="scoreChangeVisible">
         <button class="btn btn-secondary"
-          (click)="onUpdateScorePlayerTwo(playersRef1.value, playersRef2.value, gamesRef.value, 1)"
+          (click)="onUpdateScorePlayerOne(playersRef1.value, playersRef2.value, gamesRef.value, 1)"
           *ngIf="isEditor">+</button>
         <button class="btn btn-default" [disabled]="!isEditor" *ngIf="!isEditor">+</button>
+      </div>
+      <div class="player-score-change" *ngIf="scoreChangeVisible">
         <button class="btn btn-secondary"
           (click)="onUpdateScorePlayerTwo(playersRef1.value, playersRef2.value, gamesRef.value, -1)"
           *ngIf="isEditor">-</button>
         <button class="btn btn-default" [disabled]="!isEditor" *ngIf="!isEditor">-</button>
+        <button class="btn btn-secondary"
+          (click)="onUpdateScorePlayerTwo(playersRef1.value, playersRef2.value, gamesRef.value, 1)"
+          *ngIf="isEditor">+</button>
+        <button class="btn btn-default" [disabled]="!isEditor" *ngIf="!isEditor">+</button>
       </div>
     </div>
   </div>

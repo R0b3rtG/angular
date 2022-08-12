@@ -34,7 +34,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 65%;
+  width: min(100vw - 2rem, 460px);
 }
 
 .player-select,
@@ -58,4 +58,36 @@ select {
   display: flex;
   justify-content: center;
   gap: 0.4rem;
+}
+
+.player-score-change:first-child {
+  margin-left: 2.5rem;
+}
+
+.player-score-change:last-child {
+  margin-right: 2.5rem;
+}
+
+.player-score-change > button {
+  width: 2rem;
+}
+
+@media (max-width: 380px) {
+  .player-score-change:first-child {
+    margin-left: 1.7rem;
+  }
+
+  .player-score-change:last-child {
+    margin-right: 1.7rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .player-score-change:first-child {
+    margin-left: 1.5rem;
+  }
+
+  .player-score-change:last-child {
+    margin-right: 1.5rem;
+  }
 }
